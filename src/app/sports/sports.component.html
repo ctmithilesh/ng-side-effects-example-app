@@ -1,0 +1,17 @@
+<app-menu></app-menu>
+<div *ngIf="loading$ | async">
+  Loading...
+</div>
+<div *ngIf="error$ | async as error">
+  {{ error }}
+</div>
+
+<div *ngIf="data$ | async as data">
+  <div *ngFor="let item of data.articles">
+    <div>
+      <h3> {{ item.title }} </h3>
+      <img src="{{ item.urlToImage}}" alt="img" width="250" height="250" />
+      <p>{{ item.description }}</p>
+    </div>
+  </div>
+</div>
